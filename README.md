@@ -152,4 +152,4 @@ Duolin Wang, Shuai Zeng, Chunhui Xu, Wangren Qiu, Yanchun Liang, Trupti Joshi, D
 
 License
 ----
-GNU v2
+GNU v2.0
