@@ -1,0 +1,2 @@
+# MusiteDeep
+MusiteDeep provides a deep-learning method for general and kinase-specific phosphorylation site prediction. It is implemented by deep learning library Keras and Theano backend. At present, MusiteDeep only provides prediction of human phosphorylation sites; however, it also provides customized model training that enables users to train other PTM prediction models by using their own training data sets based on either CPU or GPU. 
