@@ -48,7 +48,7 @@ python predict.py -input [custom predicting data in fasta format] -predict-type 
 ```sh
 python predict.py -input ../testdata/testing_proteins_STY.fasta -predict-type general -output result_test_general.txt -residue-types S,T,Y
 ```
-You can change the type of sites for prediction by setting parameter ‘-residue-types’. For our general phosphorylation site prediction, only S, T and Y are acceptable.
+You can change the type of sites for prediction by setting parameter ‘-residue-types’. For our general phosphorylation site prediction, only S, T and Y are acceptable. It takes about 15 minutes for running on CPU. The warnings can be ignored.
 For details of other parameters, run:
 ```sh
 python predict.py --help
@@ -71,7 +71,7 @@ Prediction for CDK:
 python predict.py -input ../testdata/testing_proteins_CDK.fasta -predict-type kinase -kinase CDK -output result_test_CDK.txt
 ```
 …
-
+It takes about 5 minutes for running on CPU. The warnings can be ignored.
 For details of other parameters, run:
 ```sh
 python predict.py --help
@@ -84,6 +84,7 @@ python predict.py -h
 # For advanced users who want to perform training and prediction by using their own data:
 
 #### For custom training:
+CPU is only suitable for prediction not training. 
 For custom general training using user’s training data:
 ```sh
 python train_general.py -input [custom training data in fasta format] -output-prefix [prefix of pre-trained model] -residue-types [custom specified residue types]
