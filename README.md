@@ -80,7 +80,7 @@ or
 ```sh
 python predict.py -h
 ```
-++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # For advanced users who want to perform training and prediction by using their own data:
 
 #### For custom training:
