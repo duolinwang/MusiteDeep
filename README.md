@@ -3,6 +3,10 @@
 MusiteDeep provides a deep-learning method for general and kinase-specific phosphorylation site prediction. It is implemented by deep learning library Keras and Theano backend. At present, MusiteDeep only provides prediction of human phosphorylation sites; however, it also provides customized model training that enables users to train other PTM prediction models by using their own training data sets based on either CPU or GPU. 
 # Installation
 
+  - Download MusiteDeep by 
+  ```sh
+  git clone https://github.com/duolinwang/MusiteDeep
+  ```
   - Installation has been tested in Linux and Mac OS X with Python 2.7. 
   - Since the package is written in python 2.7, [python 2.7](https://www.python.org/downloads/ ) with the pip tool must be installed first. 
 MusiteDeep uses the following dependencies:
@@ -99,7 +103,8 @@ python train_general.py -h
 ```
 Examples will be shown together with other commands below.
 
-For custom kinase-specific training (or performing transfer learning in which train models from several pre-trained models) from users’ training data:
+For custom kinase-specific training (or performing transfer learning in which initialize parameters of models from several pre-trained models) from users’ training data:
+
 To do so, the background models from one custom general data must be trained first by train_general.py, then train the kinase-specific models by using the background models to initialize the weights in the kinase-specific models. 
 ```sh
 python train_kinase.py -input [custom training data in fasta format] -background-prefix [prefix of pre-trained model] -output-prefix [prefix of output files]
