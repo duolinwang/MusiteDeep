@@ -103,9 +103,9 @@ python train_general.py -h
 ```
 Examples will be shown together with other commands below.
 
-For custom kinase-specific training (or performing transfer learning in which initialize parameters of models from several pre-trained models) from users’ training data:
+For custom kinase-specific training (or performing transfer learning) from users’ training data. To solve the small-sample problem of kinase-specific phosphorylation site prediction, we encourage users to train a base network on the general phosphorylation data and then transfer the whole layers except for the last output layer of the base network to kinase-specific models by fine-tuning the whole network using the kinase-specific data. In this way, the kinase-specific models learn from the general feature representations and the overfitting problem is relieved. This approach has successfully been applied to many image classification problems and shown good classification performance by using small-sample data.
 
-To do so, the background models from one custom general data must be trained first by train_general.py, then train the kinase-specific models by using the background models to initialize the weights in the kinase-specific models. 
+To do so by MusiteDeep, the background models from one custom general data must be trained first by train_general.py, then train the kinase-specific models by using the background models to initialize the weights in the kinase-specific models. 
 ```sh
 python train_kinase.py -input [custom training data in fasta format] -background-prefix [prefix of pre-trained model] -output-prefix [prefix of output files]
 ```
@@ -117,6 +117,7 @@ or
 ```sh
 python train_kinase.py -h
 ```
+Users can modify the number of transfer layers from the top layers by setting '-transferlayer TRANSFERLAYER'. 
 Examples will be shown together with other commands below.
 
 #### Custom prediction from custom general models and custom kinase-specific models:
