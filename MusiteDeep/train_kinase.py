@@ -13,7 +13,7 @@ def main():
     parser.add_argument('-output-prefix',  dest='outputprefix', type=str, help='prefix of output files (model and parameters of model) for prediction.', required=True)
     parser.add_argument('-valinput',  dest='valfile', type=str, help='validation data in fasta format if any. It will randomly select 10 percent of samples from the training data as a validation data set, if no validation file is provided.', required=False,default=None)
     parser.add_argument('-nclass',  dest='nclass', type=int, help='number of classifiers to be trained for one time. [Default:5]', required=False, default=5)
-    parser.add_argument('-maxneg',  dest='maxneg', type=int, help='maximum iterations for each classifier which controls the maximum copy number of the negative data which has the same size with the positive data. [Default: 30]', required=False, default=30)
+    parser.add_argument('-maxneg',  dest='maxneg', type=int, help='maximum iterations for each classifier which controls the maximum copy number of the negative data which has the same size with the positive data. [Default: 50]', required=False, default=50)
     parser.add_argument('-nb_epoch',  dest='nb_epoch', type=int, help='number of epoches for one bootstrap step. It is invalidate, if earlystop is set.', required=False, default=None)
     parser.add_argument('-earlystop',  dest='earlystop', type=int, help='after the \'earlystop\' number of epochs with no improvement the training will be stopped for one bootstrap step. [Default: 20]', required=False, default=20)
     parser.add_argument('-inputweights',  dest='inputweights', type=int, help='Initial weights saved in a HDF5 file.', required=False, default=None)
