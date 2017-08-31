@@ -152,7 +152,6 @@ python predict.py -input ../testdata/testing_proteins_STY.fasta -predict-type cu
 ```sh
 python predict.py -input ../testdata/testing_proteins_PKA.fasta -predict-type custom -model-prefix custom_PKA -output custom_PKA_results.txt 
 ```
-
 ### Citation：
 Please cite the following paper for using MusiteDeep:
 Duolin Wang, Shuai Zeng, Chunhui Xu, Wangren Qiu, Yanchun Liang, Trupti Joshi, Dong Xu*, MusiteDeep: a Deep-learning Framework for General and Kinase-specific Phosphorylation Site Prediction.
