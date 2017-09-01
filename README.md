@@ -153,9 +153,9 @@ python predict.py -input ../testdata/testing_proteins_STY.fasta -predict-type cu
 python predict.py -input ../testdata/testing_proteins_PKA.fasta -predict-type custom -model-prefix custom_PKA -output custom_PKA_results.txt 
 ```
 #### Training and testing data used for paper (Fig.4) is provided in the folder of testdata. 
-testing_proteins_ST.fasta is the test data for S and T (annotated after 2008).
-trainning_proteins_nonredundant_50_ST.fasta is the training data for S and T with no more than 50% identity with the test data.
-trainning_proteins_nonredundant_10_ST.fasta is the training data for S and T with no more than 10% identity with the test data.
+testing_proteins_ST.fasta is the testing data for S and T (annotated after 2008).
+trainning_proteins_nonredundant_50_ST.fasta is the training data for S and T with no more than 50% identity with the testing data.
+trainning_proteins_nonredundant_10_ST.fasta is the training data for S and T with no more than 10% identity with the testing data.
 S or T followed by "#" indicates the positive sites.
 
 ### Citation：
