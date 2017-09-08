@@ -40,7 +40,7 @@ Change the default configuration file into:
 ```
 # Running on GPU or CPU
 
->After you install MusiteDeep, Theano will be installed along with MusiteDeep. Refer to [Keras documentation](https://keras.io/getting-started/faq/#how-can-i-run-keras-on-gpu)  to configure theano to run on GPU/CPU. Note that, if you want to use GPU, you also need to install [CUDA]( https://developer.nvidia.com/cuda-toolkit) and [cuDNN](https://developer.nvidia.com/cudnn); refer to their websites for instructions. If you use "pip install theano" to install theano (the lower but official supported version), you need to install cuDNN version 5.1. CPU is only suitable for predicting not training. 
+>After you install MusiteDeep, Theano will be installed along with MusiteDeep. Refer to [Keras documentation](https://keras.io/getting-started/faq/#how-can-i-run-keras-on-gpu)  to configure theano to run on GPU/CPU. Note that, if you want to use GPU, you also need to install [CUDA]( https://developer.nvidia.com/cuda-toolkit) and [cuDNN](https://developer.nvidia.com/cudnn); refer to their websites for instructions. If you use "pip install theano" to install theano (the lower but official supported version), you need to install cuDNN version 5.1. If you want to install cuDNN with higher version, you need to upgrate theano. CPU is only suitable for predicting not training. 
 
 # For general users who want to perform human phosphorylation site prediction by our provided model :
 cd to the MusiteDeep/MusiteDeep folder which contains predict.py, train_general.py and train_kinase.py.  
