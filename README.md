@@ -19,6 +19,7 @@ pip install numpy
 pip install scipy
 pip install h5py
 pip install -v keras==1.1.0
+pip install theano
 ```
 To install MusiteDeep, cd to the MusiteDeep folder and run the installation command:
 ```sh
