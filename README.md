@@ -161,7 +161,7 @@ S or T followed by "#" indicates the positive sites.
 
 ### Citation：
 Please cite the following paper for using MusiteDeep:
-Duolin Wang, Shuai Zeng, Chunhui Xu, Wangren Qiu, Yanchun Liang, Trupti Joshi, Dong Xu*, MusiteDeep: a Deep-learning Framework for General and Kinase-specific Phosphorylation Site Prediction.
+Duolin Wang, Shuai Zeng, Chunhui Xu, Wangren Qiu, Yanchun Liang, Trupti Joshi, Dong Xu*, MusiteDeep: a Deep-learning Framework for General and Kinase-specific Phosphorylation Site Prediction, Bioinformatics 2017.
 
 License
 ----
