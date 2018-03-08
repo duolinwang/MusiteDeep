@@ -1,6 +1,6 @@
 # MusiteDeep: a Deep-learning Framework for General and Kinase-specific Phosphorylation Site Prediction 
 
-It is a Keras2.0 and Tensorflow version. 
+It is a Keras2.0 and Tensorflow version of MusiteDeep. 
 # Installation
 
   - Installation has been tested in Linux and Mac OS X with Python 2.7. 
@@ -35,6 +35,27 @@ Change the default configuration file into:
 >If you want to use GPU, you also need to install [CUDA]( https://developer.nvidia.com/cuda-toolkit) and [cuDNN](https://developer.nvidia.com/cudnn); refer to their websites for instructions. 
 CPU is only suitable for prediction not training. 
 
+# For general users who want to perform human phosphorylation site prediction by our provided model :
+cd to the MusiteDeep_Keras2.0/MusiteDeep folder which contains predict.py, train_general.py and train_kinase.py.  
+
+#### For general phosphorylation site prediction using our pre-trained model, run:
+```sh
+python predict.py -input [custom predicting data in fasta format] -predict-type general -output [custom specified file for predicting results] 
+```
+##### Example:
+```sh
+python predict.py -input ../testdata/testing_proteins_STY.fasta -predict-type general -output result_test_general.txt -residue-types S,T,Y
+```
+You can change the type of sites for prediction by setting parameter ‘-residue-types’. For our general phosphorylation site prediction, only S, T and Y are acceptable. It takes about 15 minutes for running on CPU. The warnings can be ignored. The current model was trained by data "training_proteins_nonredundant_STY.fasta" which is under the ../testdata folder.
+
+For details of other parameters, run:
+```sh
+python predict.py --help
+```
+or
+```sh
+python predict.py -h
+```
 
 # For advanced users who want to perform training and prediction by using their own data:
 
