@@ -85,6 +85,7 @@ or
 ```sh
 python predict.py -h
 ```
+The current models were trained by data "trainning_proteins_XXX.fasta", which is under the testdata folder. Here XXX indicates the kinase name.
 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 # For advanced users who want to perform training and predicting by using their own data:
 
