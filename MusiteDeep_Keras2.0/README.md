@@ -97,16 +97,16 @@ python predict.py -input [custom predicting data in fasta format] -predict-type 
 
 When you have a lot of protein sequences in fasta format and you have changed the fasta format by adding “#” to the sites which are annotated sites of a specific PTM (use # to indicate positive sites), you can do custom general training. Taking the training of a general phosphorylation model as an example ,  training_proteins_nonredundant_STY.fasta in the ‘testdata’ folder is your training data, you can train a general model with prefix ‘custom_general’ and focusing on residues S,T, you can run the following command: 
 ```sh
-python train_general.py -input ../testdata/training_proteins_nonredundant_STY.fasta -output-prefix custom_general_ST -residue-types S,T -nclass=1
+python train_general.py -input ../testdata/training_proteins_nonredundant_STY.fasta -output-prefix custom_general_ST -residue-types S,T -nclass=5
 ```
 In this command, since the parameter nclass is specified as 1 (to save time) only one general classifier will be trained. The default value for nclass is 5. And since the ‘-residue-types’ is set as S,T, only fragments center on S and T will be considered and used to train the model. Note that all the residues specified by this parameter will be trained in one model. So that S/T and Y cannot be used to train one model. For the model focusing on Y, a separate model need to be trained.
 When you only have a small sample of protein sequence data, it is better to train general phosphorylation models first before training a kinase-specific phosphorylation model, then use the general phosphorylation models to initialize weights for the kinase-specific model, which is the concept of transfer learning.  Taking the training of PKA-specific phosphorylation model as an example, run the following command:
 ```sh
-python train_kinase.py -input ../testdata/training_proteins_PKA.fasta  -background-prefix custom_general_ST -output-prefix custom_PKA -nclass=1
+python train_kinase.py -input ../testdata/training_proteins_PKA.fasta  -background-prefix custom_general_ST -output-prefix custom_PKA -nclass=5
 ```
 Here, custom_general_ST is the prefix of the pre-trained model by using the general phosphorylation training data ‘training_proteins_nonredundant_STY.fasta’ in the former command. You can also specify the number of the last layers to be randomly initialized by setting the parameter ‘-transferlayer’. The default value of ‘transferlayer’ is 1. If you don’t specify the residue type by parameter ‘-residue-types’, the same residues will be focused as in the general model.  You can set a different ‘-redisue-types’ from the general model. This is for training the general phosphorylation model of residue Y by using the general phosphorylation model for residues S and T as the background model to initialize weights in the new model. In this way, the performance of general phosphorylation models of residue Y is improved. Here is an example of training phosphorylation model for residue Y:
 ```sh
-python train_kinase.py -input ../testdata/training_proteins_nonredundant_STY.fasta -background-prefix custom_general_ST -output-prefix custom_general_Y -nclass=1 -residue-types Y -transferlayer 0
+python train_kinase.py -input ../testdata/training_proteins_nonredundant_STY.fasta -background-prefix custom_general_ST -output-prefix custom_general_Y -nclass=5 -residue-types Y -transferlayer 0
 ```
 This time only fragment’s center on Y will be considered and used to train the model.
 
