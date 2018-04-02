@@ -1,6 +1,6 @@
 # MusiteDeep: a Deep-learning Framework for General and Kinase-specific Phosphorylation Site Prediction 
 
-It is a Keras2.0 and Tensorflow version of MusiteDeep. 
+It is a Keras2.0 and Tensorflow version of MusiteDeep. It shares the same testdata folder which is under the MusiteDeep folder, please downloaded it and copy it to the MusiteDeep_keras2.0 foler to test the following experiments. 
 # Installation
 
   - Installation has been tested in Linux and Mac OS X with Python 2.7. 
@@ -144,6 +144,14 @@ python predict.py -input ../testdata/testing_proteins_STY.fasta -predict-type cu
 ```sh
 python predict.py -input ../testdata/testing_proteins_PKA.fasta -predict-type custom -model-prefix custom_PKA -output custom_PKA_results.txt 
 ```
+### Training and testing data used for paper (Fig.4) is provided in the folder of testdata.
+testing_proteins_ST.fasta is the testing data for S and T (annotated after 2008).
+
+trainning_proteins_nonredundant_50_ST.fasta is the training data for S and T with no more than 50% identity with the testing data. trainning_proteins_nonredundant_10_ST.fasta is the training data for S and T with no more than 10% identity with the testing data. S or T followed by "#" indicates the positive sites.
+
+### Evaluation data for Kinase-specific models is provided in the folder of testdata.
+We used 5-fold cross-validation to evaluate the performance of MusiteDeep in the paper. The un-divided data set can be found in the folder of testdata by combining "trainning_proteins_XXX" with "testing_proteins_XXX_withannotation", here XXX indicates the name of a specific kinase family.
+
 
 ### Citation：
 Please cite the following paper for using MusiteDeep:
