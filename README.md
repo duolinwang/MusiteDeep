@@ -161,6 +161,9 @@ trainning_proteins_nonredundant_50_ST.fasta is the training data for S and T wit
 trainning_proteins_nonredundant_10_ST.fasta is the training data for S and T with no more than 10% identity with the testing data.
 S or T followed by "#" indicates the positive sites.
 
+### Training data and testing data for Kinase-specific models  
+We used 5-fold cross-validation to evaluate the performance of MusiteDeep in the paper. The un-divided data set can be found in the folder of testdata by combining "trainning_proteins_XXX" with "testing_proteins_XXX_withannotation", here XXX indicates the name of a specific kinase family.
+
 ### Citation：
 Please cite the following paper for using MusiteDeep:
 Duolin Wang, Shuai Zeng, Chunhui Xu, Wangren Qiu, Yanchun Liang, Trupti Joshi, Dong Xu*, MusiteDeep: a Deep-learning Framework for General and Kinase-specific Phosphorylation Site Prediction, Bioinformatics 2017.
