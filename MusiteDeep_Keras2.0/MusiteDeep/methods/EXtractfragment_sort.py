@@ -24,9 +24,9 @@ def read_fasta(fasta_file):
                     fasta_dict[gene_id] = seq
                     idlist.append(gene_id)
                 seq = ""
-                gene_id = line.strip('\n') #  line.split('|')[1] all in > need to be id
+                gene_id = line.strip() #  line.split('|')[1] all in > need to be id
             else:
-                seq += line.strip('\n')
+                seq += line.strip().replace(' ','')
         
         fasta_dict[gene_id] = seq #last seq need to be record
         idlist.append(gene_id)
