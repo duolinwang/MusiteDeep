@@ -19,7 +19,7 @@ from keras.layers import Dense, Dropout, Activation, Flatten, Input
 from keras.optimizers import SGD
 from keras.layers.normalization import BatchNormalization
 from keras.regularizers import WeightRegularizer, l1, l2
-from attention import Attention,myFlatten
+from methods.attention import Attention,myFlatten
 import copy
 
 
