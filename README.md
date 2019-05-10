@@ -162,7 +162,8 @@ trainning_proteins_nonredundant_10_ST.fasta is the training data for S and T wit
 S or T followed by "#" indicates the positive sites.
 
 ### Evaluation data for Kinase-specific models is provided in the folder of testdata.  
-We used 5-fold cross-validation to evaluate the performance of MusiteDeep in the paper. The un-divided data set can be found in the folder of testdata by combining "trainning_proteins_XXX" with "testing_proteins_XXX_withannotation", here XXX indicates the name of a specific kinase family.
+We used 5-fold cross-validation to evaluate the performance of MusiteDeep in the paper. One fold of the cross-validation data set can be found in the folder of testdata. The fold 1 trainning data is "trainning_proteins_XXX" and the corresponding testing data is "testing_proteins_XXX_withannotation", here XXX indicates the name of a specific kinase family.
+Combinning the trainning data and the testing data, you can get the whole samples. 
 
 ### Citation：
 Please cite the following paper for using MusiteDeep:
