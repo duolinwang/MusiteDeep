@@ -85,7 +85,7 @@ def main():
                print("General phosphorylation prediction for S or T: \n")        
                testfrag,ids,poses,focuses=extractFragforPredict(inputfile,window,'-',focus=residues)
                models=MultiCNN(np.zeros([3,1,2*window+1,21]),[],nb_epoch=1,predict=True)# only to get config
-               model="./models/models_ST_HDF5model"
+               model="./models/models_ST_HDF5model_"
                predictproba=batch_predict(testfrag,models,model,nclass,outputfile)
                poses=poses+1;
                results_ST=np.column_stack((ids,poses,focuses,predictproba))
