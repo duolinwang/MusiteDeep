@@ -101,7 +101,7 @@ def main():
            model="./models/models_Y_HDF5model_"
            nclass_init=5;
            nclass=3;
-           predictproba=batch_predict(testfrag,models,model,nclass,nclass_init,outputfile)           
+           predictproba=batch_predict(testfrag,models,model,nclass,outputfile,nclass_init)           
            poses=poses+1;
            results_Y=np.column_stack((ids,poses,focuses,predictproba))
            result=pd.DataFrame(results_Y)
