@@ -40,25 +40,25 @@ cd to the MusiteDeep_Keras2.0/MusiteDeep folder which contains predict.py, train
 
 #### For general phosphorylation site prediction using our pre-trained model, run:
 ```sh
-python predict_batch.py -input [custom predicting data in fasta format] -predict-type general -output [custom specified file for predicting results] 
+python predict.py -input [custom predicting data in fasta format] -predict-type general -output [custom specified file for predicting results] 
 ```
 ##### Example:
 ```sh
-python predict_batch.py -input ../testdata/testing_proteins_STY.fasta -predict-type general -output result_test_general.txt -residue-types S,T,Y
+python predict.py -input ../testdata/testing_proteins_STY.fasta -predict-type general -output result_test_general.txt -residue-types S,T,Y
 ```
 You can change the type of sites for prediction by setting parameter ‘-residue-types’. For our general phosphorylation site prediction, only S, T and Y are acceptable. It takes about 15 minutes for running on CPU. The warnings can be ignored. The current model was trained by data "training_proteins_nonredundant_STY.fasta" which is under the ../testdata folder.
 
 For details of other parameters, run:
 ```sh
-python predict_batch.py --help
+python predict.py --help
 ```
 or
 ```sh
-python predict_batch.py -h
+python predict.py -h
 ```
 #### For kinase-specific phosphorylation site prediction using our pre-trained model, run:
 ```sh
-python predict_batch.py -input [custom predicting data in fasta format] -predict-type kinase -kinase [custom specified kinase to predict] -output [custom specified file for predicting results]
+python predict.py -input [custom predicting data in fasta format] -predict-type kinase -kinase [custom specified kinase to predict] -output [custom specified file for predicting results]
 ```
 ##### Example:
 Prediction for PKA:
@@ -136,13 +136,13 @@ This time only fragment’s center on Y will be considered and used to train the
 ##### Example of prediction from a custom general PTM model for residues S/T and Y:
 
 ```sh
-python predict_batch.py -input ../testdata/testing_proteins_STY.fasta -predict-type custom -model-prefix custom_general_ST -output custom_general_results.txt -residue-types S,T
-python predict_batch.py -input ../testdata/testing_proteins_STY.fasta -predict-type custom -model-prefix custom_general_Y -output custom_general_results.txt -residue-types Y
+python predict.py -input ../testdata/testing_proteins_STY.fasta -predict-type custom -model-prefix custom_general_ST -output custom_general_results.txt -residue-types S,T
+python predict.py -input ../testdata/testing_proteins_STY.fasta -predict-type custom -model-prefix custom_general_Y -output custom_general_results.txt -residue-types Y
 ```
 ##### Example of prediction from a custom kinase-specific PTM model:
 
 ```sh
-python predict_batch.py -input ../testdata/testing_proteins_PKA.fasta -predict-type custom -model-prefix custom_PKA -output custom_PKA_results.txt 
+python predict.py -input ../testdata/testing_proteins_PKA.fasta -predict-type custom -model-prefix custom_PKA -output custom_PKA_results.txt 
 ```
 ### Training and testing data used for paper (Fig.4) is provided in the folder of testdata.
 testing_proteins_ST.fasta is the testing data for S and T (annotated after 2008).
