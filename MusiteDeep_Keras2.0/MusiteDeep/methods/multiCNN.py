@@ -9,7 +9,9 @@ import keras.models as models
 import keras.utils.np_utils as kutils
 from keras.layers.embeddings import Embedding
 from keras.layers.recurrent import LSTM
-from keras.layers import merge
+#from keras.layers import merge
+from keras.layers.merge import concatenate
+
 from keras.layers import pooling
 from keras.models import Model
 from keras.callbacks import EarlyStopping, ModelCheckpoint,Callback
@@ -17,7 +19,7 @@ from keras.layers import Dense, Dropout, Activation, Flatten, Input
 from keras.optimizers import SGD
 from keras.layers.normalization import BatchNormalization
 from keras.regularizers import l1, l2
-from methods.attention import Attention,myFlatten
+from .attention import Attention,myFlatten
 
 
 #def copy_model(model):
@@ -70,7 +72,7 @@ def copy_model(input_row,input_col):
          decoder_xr = Attention(hidden=attentionhidden_xr,activation='linear',init='he_normal',W_regularizer=l1(attention_reg_xr))
          decoded_xr=decoder_xr(x_reshape)
          output_xr = myFlatten(x_reshape._keras_shape[2])(decoded_xr)
-         output=merge([output_x,output_xr],mode='concat')
+         output=concatenate([output_x,output_xr])
          output=Dropout(dropout6)(output)
          output=Dense(dense_size1,kernel_initializer='he_normal',activation='relu')(output)
          output=Dropout(dropout_dense1)(output)
@@ -148,7 +150,7 @@ def MultiCNN(trainX, trainY,valX=None, valY=None,
          decoded_xr=decoder_xr(x_reshape)
          output_xr = myFlatten(x_reshape._keras_shape[2])(decoded_xr)
          
-         output=merge([output_x,output_xr],mode='concat')
+         output=concatenate([output_x,output_xr])
          output=Dropout(dropout6)(output)
          output=Dense(dense_size1,kernel_initializer='he_normal',activation='relu')(output)
          output=Dropout(dropout_dense1)(output)
@@ -163,7 +165,7 @@ def MultiCNN(trainX, trainY,valX=None, valY=None,
     
     if(predict is False):
          if(weights is not None and compiletimes==0): #for the first time
-            print "load weights:"+weights;
+            print("load weights:"+weights)
             if not forkinas:
                  cnn.load_weights(weights);
             else:
