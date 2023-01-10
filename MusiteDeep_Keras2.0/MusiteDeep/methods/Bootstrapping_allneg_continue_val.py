@@ -1,6 +1,6 @@
 #Bootstrapping_allneg_continue
-from multiCNN import MultiCNN
-from DProcess import convertRawToXY
+from .multiCNN import MultiCNN
+from .DProcess import convertRawToXY
 import pandas as pd
 import numpy as np
 import keras.models as models
