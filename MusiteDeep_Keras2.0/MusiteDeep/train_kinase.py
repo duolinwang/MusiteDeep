@@ -31,7 +31,7 @@ def main():
     try:
         f= open(backgroundparameter, 'r')
     except IOError:
-        print "cannot open "+ backgroundparameter+" ! Please run train_general.py to get one from general PTM data, or you can just run train_general.py without the background models using kinase-specific data.\n"
+        print("cannot open "+ backgroundparameter+" ! Please run train_general.py to get one from general PTM data, or you can just run train_general.py without the background models using kinase-specific data.\n")
     else:
          parameters=f.read()
          f.close()
@@ -60,10 +60,10 @@ def main():
     try: 
        output = open (outputparameter,'w')
     except IOError:
-       print 'cannot write to ' + outputparameter+ "!\n";
+       print('cannot write to ' + outputparameter+ "!\n")
        exit()
     else:
-        print >> output, "%d\t%d\t%s\tkinase-specific\t%d\n" % (nclass,window,residues,nclass_init)
+        output.write("%d\t%d\t%s\tkinase-specific\t%d\n" % (nclass,window,residues,nclass_init))
     
     from methods.Bootstrapping_allneg_continue_val import bootStrapping_allneg_continue_val
     from methods.EXtractfragment_sort import extractFragforTraining

@@ -40,10 +40,11 @@ def main():
     try:
        output = open(outputparameter, 'w')
     except IOError:
-       print 'cannot write to ' + outputparameter+ "!\n";
+       print('cannot write to ' + outputparameter+ "!\n")
        exit()
     else:
-       print >> output, "%d\t%d\t%s\tgeneral" % (nclass,window,args.residues)
+       output.write("%d\t%d\t%s\tgeneral\n" % (nclass,window,args.residues))
+       output.close()
     
     from methods.Bootstrapping_allneg_continue_val import bootStrapping_allneg_continue_val
     from methods.EXtractfragment_sort import extractFragforTraining
@@ -64,4 +65,5 @@ def main():
         
 if __name__ == "__main__":
     main()         
-   
+
+
