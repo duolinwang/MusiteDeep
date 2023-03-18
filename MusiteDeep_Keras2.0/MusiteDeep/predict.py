@@ -44,7 +44,7 @@ def main():
           residues.remove("Y")
         
         if("S" in residues or "T" in residues):
-               print "General phosphorylation prediction for S or T: \n"        
+               print("General phosphorylation prediction for S or T: \n")        
                testfrag,ids,poses,focuses=extractFragforPredict(inputfile,window,'-',focus=residues)
                testX,testY = convertRawToXY(testfrag.as_matrix(),codingMode=0) 
                predictproba=np.zeros((testX.shape[0],2))
@@ -64,7 +64,7 @@ def main():
         #########for Y################
         residues=args.residues.split(",")
         if("Y" in residues):
-           print "General phosphorylation prediction for Y: \n"        
+           print("General phosphorylation prediction for Y: \n")
            testfrag,ids,poses,focuses=extractFragforPredict(inputfile,window,'-',focus=("Y"))
            testX,testY = convertRawToXY(testfrag.as_matrix(),codingMode=0) 
            predictproba=np.zeros((testX.shape[0],2))
@@ -84,16 +84,16 @@ def main():
            result=pd.DataFrame(results_Y)
            result.to_csv(outputfile+"_general_phosphorylation_Y.txt", index=False, header=None, sep='\t',quoting=csv.QUOTE_NONNUMERIC)
         
-        print "Successfully predicted for general phosphorylation !\n";
+        print("Successfully predicted for general phosphorylation !\n");
     elif predicttype == 'kinase':
          if kinase is None or kinase not in kinaselist:
-            print "wrong parameter for -kinase! Must be one of \'CDK\' or \'PKA\' or \'CK2\' or \'MAPK\' or \'PKC\' !\n";
+            print("wrong parameter for -kinase! Must be one of \'CDK\' or \'PKA\' or \'CK2\' or \'MAPK\' or \'PKC\' !\n");
             exit()
          else: #prediction for kinas
                from methods.DProcess import convertRawToXY
                from methods.EXtractfragment_sort import extractFragforPredict
                from methods.multiCNN import MultiCNN
-               print "Kinase-specific prediction for "+str(kinase)+" !\n";
+               print("Kinase-specific prediction for "+str(kinase)+" !\n");
                nclass_init=5
                nclass=3
                window=16
@@ -101,7 +101,7 @@ def main():
                testX,testY = convertRawToXY(testfrag.as_matrix(),codingMode=0) 
                predictproba=np.zeros((testX.shape[0],2))
                models=MultiCNN(testX,testY,nb_epoch=1,predict=True)# only to get config
-               model="./models/"+str(kinase)+"_model_"
+               model="./models/"+str(kinase)+"_HDF5model_"
                for ini in range(nclass_init):
                    for bt in range(nclass):
                            models.load_weights(model+'ini'+str(ini)+'_class'+str(bt))
@@ -113,13 +113,13 @@ def main():
                results=np.column_stack((ids,poses,focuses,predictproba[:,1]))
                result=pd.DataFrame(results)
                result.to_csv(outputfile+"_"+str(kinase)+".txt", index=False, header=None, sep='\t',quoting=csv.QUOTE_NONNUMERIC)
-               print "Successfully predicted for "+str(kinase)+" !\n";
+               print("Successfully predicted for "+str(kinase)+" !\n");
          
     elif predicttype == 'custom':
         if modelprefix is None:
-           print "If you want to do prediction by a custom model, please specify the prefix for an existing custom model by -model-prefix!\n\
+           print("If you want to do prediction by a custom model, please specify the prefix for an existing custom model by -model-prefix!\n\
            It indicates two files [-model-prefix]_HDF5model and [-model-prefix]_parameters.\n \
-           If you don't have such files, please run train_general.py or train_kinase.py to get the custom model first!\n"
+           If you don't have such files, please run train_general.py or train_kinase.py to get the custom model first!\n")
            exit()
         else: #custom prediction
           model=modelprefix+str("_HDF5model")
@@ -127,7 +127,7 @@ def main():
           try:
               f=open(parameter,'r')
           except IOError:
-              print 'cannot open '+ parameter+" ! check if the model exists. please run train_general.py or train_kinase.py to get the custom model first!\n"
+              print('cannot open '+ parameter+" ! check if the model exists. please run train_general.py or train_kinase.py to get the custom model first!\n")
           else:
                f= open(parameter, 'r')
                parameters=f.read()
@@ -163,10 +163,10 @@ def main():
           results=np.column_stack((ids,poses,focuses,predictproba[:,1]))
           result=pd.DataFrame(results)
           result.to_csv(outputfile+"_custom.txt", index=False, header=None, sep='\t',quoting=csv.QUOTE_NONNUMERIC)
-          print "Successfully predicted from custom models !\n";
+          print("Successfully predicted from custom models !\n");
           
     else: 
-       print "wrong parameter for -predict-type!\n";
+       print("wrong parameter for -predict-type!\n");
        exit();
     
      
