@@ -60,7 +60,7 @@ def main():
     try: 
        output = open (outputparameter,'w')
     except IOError:
-       print('cannot write to ' + outputparameter+ "!\n")
+       print('cannot write to ' + outputparameter+ "!\n");
        exit()
     else:
         output.write("%d\t%d\t%s\tkinase-specific\t%d\n" % (nclass,window,residues,nclass_init))
