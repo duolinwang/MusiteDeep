@@ -40,7 +40,7 @@ cd to the MusiteDeep_Keras2.0/MusiteDeep folder which contains predict.py, train
 
 #### For general phosphorylation site prediction using our pre-trained model, run:
 ```sh
-python predict_batch.py -input [custom predicting data in fasta format] -predict-type general -output [custom specified file for predicting results] 
+python predict.py -input [custom predicting data in fasta format] -predict-type general -output [custom specified file for predicting results] 
 ```
 ##### Example:
 ```sh
@@ -58,7 +58,7 @@ python predict_batch.py -h
 ```
 #### For kinase-specific phosphorylation site prediction using our pre-trained model, run:
 ```sh
-python predict_batch.py -input [custom predicting data in fasta format] -predict-type kinase -kinase [custom specified kinase to predict] -output [custom specified file for predicting results]
+python predict.py -input [custom predicting data in fasta format] -predict-type kinase -kinase [custom specified kinase to predict] -output [custom specified file for predicting results]
 ```
 ##### Example:
 Prediction for PKA:
@@ -73,11 +73,11 @@ python predict_batch.py -input ../testdata/testing_proteins_CDK.fasta -predict-t
 It takes about 5 minutes for running on CPU. The warnings can be ignored.
 For details of other parameters, run:
 ```sh
-python predict_batch.py --help
+python predict.py --help
 ```
 or
 ```sh
-python predict_batch.py -h
+python predict.py -h
 ```
 The current models were trained by data "trainning_proteins_XXX.fasta", which is under the testdata folder. Here XXX indicates the kinase name.
 # For advanced users who want to perform training and prediction by using their own data:
