@@ -10,7 +10,7 @@ setup(name='MusiteDeep',
       url='https://../../',
       download_url='https://../..',
       license='GNU2.0',
-      install_requires=['theano>=0.8.0', 'pyyaml', 'keras==1.1.0','numpy>=1.8.0','h5py','pandas'],
+      install_requires=['theano>=0.8.0', 'pyyaml', 'keras==2.13.1','numpy>=1.8.0','h5py','pandas'],
       extras_require={
           'h5py': ['h5py'],
       },
